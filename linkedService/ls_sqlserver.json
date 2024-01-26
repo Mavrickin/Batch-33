@@ -1,0 +1,18 @@
+{
+	"name": "ls_sqlserver",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=datademo1.database.windows.net;Initial Catalog=demo1;User ID=admink",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_sqlserver_kv",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqlserver"
+			}
+		}
+	}
+}
