@@ -1,0 +1,12 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=rksql.database.windows.net;initial catalog=testdb;user id=rkadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEU3MjFFQjE0LUYxRjktNDMzMi1CMDBGLUEzMjUwRkYyRjQwMF9mY2Y1MzNhNy1lYWNjLTQ3ZDUtOWQ5Ni0yMTViODNjZGYyMTIiDQp9"
+		}
+	}
+}
