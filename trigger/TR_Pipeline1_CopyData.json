@@ -1,0 +1,31 @@
+{
+	"name": "TR_Pipeline1_CopyData",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_container_transfer",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 2,
+				"startTime": "2024-01-16T16:19:00",
+				"timeZone": "Eastern Standard Time",
+				"schedule": {
+					"hours": [
+						10,
+						11,
+						18
+					]
+				}
+			}
+		}
+	}
+}
