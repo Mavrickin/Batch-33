@@ -1,0 +1,20 @@
+{
+	"name": "SqlServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=cisserver1.database.windows.net;Initial Catalog=demode;User ID=admin1",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "admin1",
+				"secretVersion": "e08f48dcabf0468fbf2ec4d8f16850de"
+			}
+		}
+	}
+}
