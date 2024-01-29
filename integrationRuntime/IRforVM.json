@@ -1,0 +1,6 @@
+{
+	"name": "IRforVM",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

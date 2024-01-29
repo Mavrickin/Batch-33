@@ -1,0 +1,17 @@
+{
+	"name": "ds_sql_output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sqldedemo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "employee"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

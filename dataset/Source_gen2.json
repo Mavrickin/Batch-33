@@ -1,0 +1,19 @@
+{
+	"name": "Source_gen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sadegen17",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Data engineering .pdf",
+				"fileSystem": "input"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
