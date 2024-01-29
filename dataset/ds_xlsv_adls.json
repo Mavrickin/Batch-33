@@ -1,0 +1,31 @@
+{
+	"name": "ds_xlsv_adls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_excel",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "sql_adls_2tables.xlsx",
+				"fileSystem": "input"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Schema_name",
+				"type": "String"
+			},
+			{
+				"name": "Table_name",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

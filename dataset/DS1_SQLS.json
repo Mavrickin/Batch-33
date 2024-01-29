@@ -1,0 +1,17 @@
+{
+	"name": "DS1_SQLS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "emp2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

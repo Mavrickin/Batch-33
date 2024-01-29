@@ -1,0 +1,19 @@
+{
+	"name": "LS_sqldb_kv",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqldbsecret",
+				"secretVersion": "a5f7b4a2379f42b49e06bb623228e9e5"
+			}
+		}
+	}
+}
