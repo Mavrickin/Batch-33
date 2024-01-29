@@ -1,0 +1,9 @@
+{
+	"name": "harsha-df",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "23b3fcf1-26e5-4449-857b-e43f0d6ac1f6",
+		"tenantId": "d499c912-541f-41bd-a263-4590a819481b"
+	}
+}
