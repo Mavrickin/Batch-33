@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "filterEuropeOnly"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -33,10 +36,19 @@
 				"     allowSchemaDrift: false,",
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 filter(continent == 'europe' && not(isNull(country_code))\r",
-				"\r",
-				"\r",
-				") ~> filterEuropeOnly"
+				"source1 filter(continent == 'europe' && not(isNull(country_code))) ~> filterEuropeOnly",
+				"filterEuropeOnly select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          population,",
+				"          indicator,",
+				"          daily_count,",
+				"          source,",
+				"          each(match(name=='date'),",
+				"               'reported'+'date' = $$)",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
