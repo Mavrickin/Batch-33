@@ -19,6 +19,9 @@
 				},
 				{
 					"name": "select1"
+				},
+				{
+					"name": "pivotcounts"
 				}
 			],
 			"scriptLines": [
@@ -48,7 +51,14 @@
 				"               'reported'+'date' = $$)",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1"
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 pivot(groupBy(country,",
+				"          population,",
+				"          source,",
+				"          reporteddate,",
+				"          {country + country code} = ERROR_FUNCTION('')),",
+				"     columnNaming: '$N$V',",
+				"     lateral: true) ~> pivotcounts"
 			]
 		}
 	}
