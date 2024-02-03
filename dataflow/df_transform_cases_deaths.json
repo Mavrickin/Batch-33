@@ -38,6 +38,7 @@
 				"     ),",
 				"     allowSchemaDrift: false,",
 				"     validateSchema: true,",
+				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 filter(continent == 'europe' && not(isNull(country_code))) ~> filterEuropeOnly",
 				"filterEuropeOnly select(mapColumn(",
