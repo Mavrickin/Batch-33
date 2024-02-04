@@ -39,7 +39,7 @@
 				"     allowSchemaDrift: false,",
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 filter(continent == 'europe' && not(isNull(country_code))) ~> filterEuropeOnly",
+				"source1 filter(continent == 'Europe' && not(isNull(country_code))) ~> filterEuropeOnly",
 				"filterEuropeOnly select(mapColumn(",
 				"          country,",
 				"          country_code,",
@@ -53,11 +53,14 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 pivot(groupBy(country,",
+				"          country_code,",
 				"          population,",
 				"          source,",
 				"          reporteddate,",
-				"          {country + country code} = ERROR_FUNCTION('')),",
-				"     columnNaming: '$N$V',",
+				"          {country special} = country+country_code),",
+				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
+				"     count = sum(daily_count),",
+				"     columnNaming: '$V_$N',",
 				"     lateral: true) ~> pivotcounts"
 			]
 		}
