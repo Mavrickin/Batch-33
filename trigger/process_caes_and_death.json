@@ -1,0 +1,24 @@
+{
+	"name": "process_caes_and_death",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_process_cases_and_deaths_data",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-02-06T20:38:00",
+				"timeZone": "Central Standard Time"
+			}
+		}
+	}
+}
