@@ -1,0 +1,17 @@
+{
+	"name": "tr_ingest_hospital_admissiion_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2024-02-07T17:45:00",
+				"timeZone": "Eastern Standard Time"
+			}
+		}
+	}
+}
