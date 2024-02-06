@@ -1,5 +1,5 @@
 {
-	"name": "pl_ingestr_cases_deaths_data",
+	"name": "pl_ingest_ecdc_data",
 	"properties": {
 		"activities": [
 			{
@@ -48,18 +48,43 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_csv_http",
-						"type": "DatasetReference"
+						"referenceName": "ds_ecdc_raw_csv_http",
+						"type": "DatasetReference",
+						"parameters": {
+							"relativeURL": {
+								"value": "@pipeline().parameters.sourceRelativeURL",
+								"type": "Expression"
+							},
+							"baseURL": {
+								"value": "@pipeline().parameters.sinkFilename",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_csv_dl",
-						"type": "DatasetReference"
+						"referenceName": "ds_ecdc_raw_csv_dl",
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": {
+								"value": "@pipeline().parameters.sinkFilename",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"sourceRelativeURL": {
+				"type": "string",
+				"defaultValue": "covid19/hospitalicuadmissionsrates/csv/data.csv"
+			},
+			"sinkFilename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2024-02-04T02:26:44Z"
 	},
