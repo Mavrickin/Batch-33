@@ -1,0 +1,27 @@
+{
+	"name": "ds_population_rg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_population",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "19 - population-by-age.tsv.gz",
+				"container": "covidpopulation"
+			},
+			"columnDelimiter": "\t",
+			"rowDelimiter": "\n",
+			"compressionCodec": "gzip",
+			"compressionLevel": "Optimal",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
