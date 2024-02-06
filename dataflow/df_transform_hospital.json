@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "ds_raw_admissions",
+						"referenceName": "Des_hospital_input",
 						"type": "DatasetReference"
 					},
 					"name": "HospitalAdmissionsource"
@@ -26,7 +26,15 @@
 					"name": "sourcedim"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Ds_weekly_admissions_output",
+						"type": "DatasetReference"
+					},
+					"name": "weeklysink"
+				}
+			],
 			"transformations": [
 				{
 					"name": "selecttransformation"
@@ -54,15 +62,21 @@
 				},
 				{
 					"name": "sortweekly"
+				},
+				{
+					"name": "selectweekly"
+				},
+				{
+					"name": "selectdaily"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
 				"          country as string,",
 				"          indicator as string,",
-				"          date as string,",
+				"          date as date,",
 				"          year_week as string,",
-				"          value as integer,",
+				"          value as double,",
 				"          source as string,",
 				"          url as string",
 				"     ),",
@@ -139,6 +153,8 @@
 				"          country_code_3_digit,",
 				"          population,",
 				"          reported_year_week,",
+				"          week_start_date,",
+				"          week_end_date,",
 				"          source),",
 				"     pivotBy(indicator, ['Weekly new hospital admissions per 100k', 'Weekly new ICU admissions per 100k']),",
 				"     count = sum(value),",
@@ -155,7 +171,40 @@
 				"     columnNaming: '$N_$V',",
 				"     lateral: true) ~> pivotdaily",
 				"pivotweekly sort(desc(reported_year_week, true),",
-				"     asc(country, true)) ~> sortweekly"
+				"     asc(country, true)) ~> sortweekly",
+				"sortweekly select(mapColumn(",
+				"          country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          population,",
+				"          reported_year_week,",
+				"          week_start_date,",
+				"          week_end_date,",
+				"          { new hospital admissions per 100k} = {count_Weekly new hospital admissions per 100k},",
+				"          { new ICU admissions per 100k} = {count_Weekly new ICU admissions per 100k},",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectweekly",
+				"pivotdaily select(mapColumn(",
+				"          country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          population,",
+				"          reported_data,",
+				"          { hospital occupancy} = {count_Daily hospital occupancy},",
+				"          { ICU occupancy} = {count_Daily ICU occupancy},",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectdaily",
+				"selectweekly sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> weeklysink"
 			]
 		}
 	}
