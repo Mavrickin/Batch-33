@@ -29,7 +29,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "Ds_weekly_admissions_output",
+						"referenceName": "ds_op_df",
 						"type": "DatasetReference"
 					},
 					"name": "weeklysink"
@@ -200,6 +200,7 @@
 				"     skipDuplicateMapOutputs: true) ~> selectdaily",
 				"selectweekly sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     truncate: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",

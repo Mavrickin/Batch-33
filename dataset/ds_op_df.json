@@ -1,5 +1,5 @@
 {
-	"name": "Ds_weekly_admissions_output",
+	"name": "ds_op_df",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_ADLS_covidreportingdl",
