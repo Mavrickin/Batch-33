@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "hospital_admission.csv",
+				"fileName": "31-hospital-admissions 1.csv",
 				"folderPath": "ecdc",
 				"fileSystem": "raw"
 			},

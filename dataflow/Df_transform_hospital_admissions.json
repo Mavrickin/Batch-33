@@ -29,6 +29,9 @@
 				},
 				{
 					"name": "selectRequFields"
+				},
+				{
+					"name": "splitdailyfromweekly"
 				}
 			],
 			"scriptLines": [
@@ -81,7 +84,9 @@
 				"          population",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> selectRequFields"
+				"     skipDuplicateMapOutputs: true) ~> selectRequFields",
+				"selectRequFields split(indicator == 'Weekly new hospital admissions per 100k' || indicator == 'Weekly new ICU admissions per 100k',",
+				"     disjoint: false) ~> splitdailyfromweekly@(weekly, daily)"
 			]
 		}
 	}
