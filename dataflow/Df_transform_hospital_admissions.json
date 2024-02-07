@@ -26,7 +26,22 @@
 					"name": "DimDataSource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_process_hospital_admission_weekly",
+						"type": "DatasetReference"
+					},
+					"name": "sinkweekly"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_processed_hospital_admission_daily",
+						"type": "DatasetReference"
+					},
+					"name": "sinkdaily"
+				}
+			],
 			"transformations": [
 				{
 					"name": "selectRequiredFeild"
@@ -53,16 +68,25 @@
 					"name": "pivotdaily"
 				},
 				{
-					"name": "sort1"
+					"name": "sortWeekly"
+				},
+				{
+					"name": "sortdaily"
+				},
+				{
+					"name": "selectWeekly"
+				},
+				{
+					"name": "selectdaily"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
 				"          country as string,",
 				"          indicator as string,",
-				"          date as date 'yyyy-MM-dd',",
+				"          date as string,",
 				"          year_week as string,",
-				"          value as double,",
+				"          value as integer,",
 				"          source as string,",
 				"          url as string",
 				"     ),",
@@ -100,7 +124,7 @@
 				"          country,",
 				"          indicator,",
 				"          Reported_date = date,",
-				"          Repoerted_year_week = year_week,",
+				"          Reported_year_week = year_week,",
 				"          value,",
 				"          source",
 				"     ),",
@@ -114,7 +138,7 @@
 				"          country = selectRequiredFeild@country,",
 				"          indicator,",
 				"          Reported_date,",
-				"          Repoerted_year_week,",
+				"          Reported_year_week,",
 				"          value,",
 				"          source,",
 				"          country = CountrySource@country,",
@@ -129,7 +153,7 @@
 				"DimDataSource aggregate(groupBy(ecdc_year_week = year + '-W' + lpad(week_of_year, 2,'0')),",
 				"     week_start_date = min(date),",
 				"          week_end_date = max(date)) ~> AggDimDate",
-				"splitdailyfromweekly@weekly, AggDimDate join(Repoerted_year_week == ecdc_year_week,",
+				"splitdailyfromweekly@weekly, AggDimDate join(Reported_year_week == ecdc_year_week,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
@@ -138,7 +162,9 @@
 				"          country_code_2_digit,",
 				"          country_code_3_digit,",
 				"          population,",
-				"          ecdc_year_week,",
+				"          Reported_year_week,",
+				"          week_start_date,",
+				"          week_end_date,",
 				"          source),",
 				"     pivotBy(indicator, ['Weekly new hosptal admissions per 100k', 'Weekly new ICU admissions per 100k']),",
 				"     count = sum(value),",
@@ -154,7 +180,50 @@
 				"     count = sum(value),",
 				"     columnNaming: '$V_$N',",
 				"     lateral: true) ~> pivotdaily",
-				"pivotWeekly sort(asc(ERROR_FUNCTION(''), true)) ~> sort1"
+				"pivotWeekly sort(asc(country, true),",
+				"     desc(Reported_year_week, true)) ~> sortWeekly",
+				"pivotdaily sort(asc(country, true),",
+				"     desc(Reported_date, true)) ~> sortdaily",
+				"sortWeekly select(mapColumn(",
+				"          country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          population,",
+				"          Reported_year_week,",
+				"          reported_week_start_date = week_start_date,",
+				"          reported_week_end_date = week_end_date,",
+				"          new_hospital_admission_count = {Weekly new hosptal admissions per 100k_count},",
+				"          new_ICU_occupancy_count = {Weekly new ICU admissions per 100k_count},",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectWeekly",
+				"sortdaily select(mapColumn(",
+				"          country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          population,",
+				"          Reported_date,",
+				"          {hospital occupancy_count} = {Daily hospital occupancy_count},",
+				"          {ICU occupancy_count} = {Daily ICU occupancy_count},",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectdaily",
+				"selectWeekly sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkweekly",
+				"selectdaily sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkdaily"
 			]
 		}
 	}
