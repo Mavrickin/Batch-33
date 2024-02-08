@@ -1,0 +1,25 @@
+{
+	"name": "trgr_ingstdata_sa_dl",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_ingest_population_data",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/6e6b9a5a-4e56-42fd-9f86-25fe5292466e/resourceGroups/Covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingbn",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}
