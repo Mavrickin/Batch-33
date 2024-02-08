@@ -1,0 +1,76 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable6",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable5",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          iso_code as string,",
+				"          continent as string,",
+				"          location as string,",
+				"          date as string,",
+				"          population as integer,",
+				"          total_cases as string,",
+				"          new_cases as string,",
+				"          new_cases_smoothed as string,",
+				"          total_deaths as string,",
+				"          new_deaths as string,",
+				"          new_deaths_smoothed as string,",
+				"          total_cases_per_million as string,",
+				"          new_cases_per_million as string,",
+				"          new_cases_smoothed_per_million as string,",
+				"          total_deaths_per_million as string,",
+				"          new_deaths_per_million as string,",
+				"          new_deaths_smoothed_per_million as string,",
+				"          reproduction_rate as string,",
+				"          icu_patients as string,",
+				"          icu_patients_per_million as string,",
+				"          hosp_patients as string,",
+				"          hosp_patients_per_million as string,",
+				"          weekly_icu_admissions as string,",
+				"          weekly_icu_admissions_per_million as string,",
+				"          weekly_hosp_admissions as string,",
+				"          weekly_hosp_admissions_per_million as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source1 derive({population per million} = population/1000000) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"name": "Self-Hosted-IR1",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Self hosted IR for Onprem to Cloud SQL"
+	}
+}

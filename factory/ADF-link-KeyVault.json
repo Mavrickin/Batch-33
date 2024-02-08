@@ -1,0 +1,9 @@
+{
+	"name": "ADF-link-KeyVault",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "73a49c31-c857-4e98-aba9-1d4b8b790b94",
+		"tenantId": "f5222e6c-5fc6-48eb-8f03-73db18203b63"
+	}
+}

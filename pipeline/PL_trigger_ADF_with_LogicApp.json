@@ -1,0 +1,54 @@
+{
+	"name": "PL_trigger_ADF_with_LogicApp",
+	"properties": {
+		"activities": [
+			{
+				"name": "PL_Sql2Adl_with_KV",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_Sql2Adl_with_KV",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "PL_Sql2Adl_with_KV",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-84.eastus.logic.azure.com:443/workflows/5c94fed078b44784bac225287dda596f/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1uChwq5wl6l9AeRTEXKyxzbYUuFcwcYo5wc6e1flmSE",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2024-02-05T18:01:32Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

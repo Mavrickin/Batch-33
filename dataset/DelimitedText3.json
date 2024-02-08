@@ -1,0 +1,128 @@
+{
+	"name": "DelimitedText3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Ad2Ad",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "mystorage"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "iso_code",
+				"type": "String"
+			},
+			{
+				"name": "continent",
+				"type": "String"
+			},
+			{
+				"name": "location",
+				"type": "String"
+			},
+			{
+				"name": "date",
+				"type": "String"
+			},
+			{
+				"name": "population",
+				"type": "String"
+			},
+			{
+				"name": "total_cases",
+				"type": "String"
+			},
+			{
+				"name": "new_cases",
+				"type": "String"
+			},
+			{
+				"name": "new_cases_smoothed",
+				"type": "String"
+			},
+			{
+				"name": "total_deaths",
+				"type": "String"
+			},
+			{
+				"name": "new_deaths",
+				"type": "String"
+			},
+			{
+				"name": "new_deaths_smoothed",
+				"type": "String"
+			},
+			{
+				"name": "total_cases_per_million",
+				"type": "String"
+			},
+			{
+				"name": "new_cases_per_million",
+				"type": "String"
+			},
+			{
+				"name": "new_cases_smoothed_per_million",
+				"type": "String"
+			},
+			{
+				"name": "total_deaths_per_million",
+				"type": "String"
+			},
+			{
+				"name": "new_deaths_per_million",
+				"type": "String"
+			},
+			{
+				"name": "new_deaths_smoothed_per_million",
+				"type": "String"
+			},
+			{
+				"name": "reproduction_rate",
+				"type": "String"
+			},
+			{
+				"name": "icu_patients",
+				"type": "String"
+			},
+			{
+				"name": "icu_patients_per_million",
+				"type": "String"
+			},
+			{
+				"name": "hosp_patients",
+				"type": "String"
+			},
+			{
+				"name": "hosp_patients_per_million",
+				"type": "String"
+			},
+			{
+				"name": "weekly_icu_admissions",
+				"type": "String"
+			},
+			{
+				"name": "weekly_icu_admissions_per_million",
+				"type": "String"
+			},
+			{
+				"name": "weekly_hosp_admissions",
+				"type": "String"
+			},
+			{
+				"name": "weekly_hosp_admissions_per_million",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,25 @@
+{
+	"name": "TR_Pipeline2mins",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline_For_ADL2ADl",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2024-02-04T10:15:00",
+				"endTime": "2024-02-04T10:43:00",
+				"timeZone": "Eastern Standard Time"
+			}
+		}
+	}
+}

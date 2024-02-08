@@ -1,0 +1,11 @@
+{
+	"name": "LS_for_KV",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kvasdemo.vault.azure.net/"
+		}
+	}
+}
