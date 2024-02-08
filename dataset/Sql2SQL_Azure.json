@@ -1,0 +1,121 @@
+{
+	"name": "Sql2SQL_Azure",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSql2SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "iso_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "continent",
+				"type": "nvarchar"
+			},
+			{
+				"name": "location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "population",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_cases",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_deaths",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths_smoothed",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_cases_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_cases_smoothed_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "total_deaths_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "new_deaths_smoothed_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "reproduction_rate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "icu_patients",
+				"type": "nvarchar"
+			},
+			{
+				"name": "icu_patients_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hosp_patients",
+				"type": "nvarchar"
+			},
+			{
+				"name": "hosp_patients_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_icu_admissions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_icu_admissions_per_million",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_hosp_admissions",
+				"type": "nvarchar"
+			},
+			{
+				"name": "weekly_hosp_admissions_per_million",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "mytable"
+		}
+	}
+}
