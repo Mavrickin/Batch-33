@@ -17,10 +17,6 @@
 					{
 						"name": "Source",
 						"value": "dbo.mytable"
-					},
-					{
-						"name": "Destination",
-						"value": "dbo.mytable"
 					}
 				],
 				"typeProperties": {
@@ -32,7 +28,9 @@
 					"sink": {
 						"type": "AzureSqlSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -45,9 +43,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "iso_code",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "iso_code"
 								}
 							},
 							{
@@ -57,9 +53,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "continent",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "continent"
 								}
 							},
 							{
@@ -69,9 +63,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "location",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "location"
 								}
 							},
 							{
@@ -81,9 +73,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "date",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "date"
 								}
 							},
 							{
@@ -93,9 +83,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "population",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "population"
 								}
 							},
 							{
@@ -105,9 +93,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "total_cases",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "total_cases"
 								}
 							},
 							{
@@ -117,9 +103,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_cases",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_cases"
 								}
 							},
 							{
@@ -129,9 +113,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_cases_smoothed",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_cases_smoothed"
 								}
 							},
 							{
@@ -141,9 +123,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "total_deaths",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "total_deaths"
 								}
 							},
 							{
@@ -153,9 +133,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_deaths",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_deaths"
 								}
 							},
 							{
@@ -165,9 +143,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_deaths_smoothed",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_deaths_smoothed"
 								}
 							},
 							{
@@ -177,9 +153,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "total_cases_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "total_cases_per_million"
 								}
 							},
 							{
@@ -189,9 +163,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_cases_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_cases_per_million"
 								}
 							},
 							{
@@ -201,9 +173,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_cases_smoothed_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_cases_smoothed_per_million"
 								}
 							},
 							{
@@ -213,9 +183,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "total_deaths_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "total_deaths_per_million"
 								}
 							},
 							{
@@ -225,9 +193,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_deaths_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_deaths_per_million"
 								}
 							},
 							{
@@ -237,9 +203,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "new_deaths_smoothed_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "new_deaths_smoothed_per_million"
 								}
 							},
 							{
@@ -249,9 +213,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "reproduction_rate",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "reproduction_rate"
 								}
 							},
 							{
@@ -261,9 +223,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "icu_patients",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "icu_patients"
 								}
 							},
 							{
@@ -273,9 +233,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "icu_patients_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "icu_patients_per_million"
 								}
 							},
 							{
@@ -285,9 +243,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "hosp_patients",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "hosp_patients"
 								}
 							},
 							{
@@ -297,9 +253,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "hosp_patients_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "hosp_patients_per_million"
 								}
 							},
 							{
@@ -309,9 +263,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "weekly_icu_admissions",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "weekly_icu_admissions"
 								}
 							},
 							{
@@ -321,9 +273,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "weekly_icu_admissions_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "weekly_icu_admissions_per_million"
 								}
 							},
 							{
@@ -333,9 +283,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "weekly_hosp_admissions",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "weekly_hosp_admissions"
 								}
 							},
 							{
@@ -345,9 +293,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "weekly_hosp_admissions_per_million",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "weekly_hosp_admissions_per_million"
 								}
 							}
 						],
@@ -360,7 +306,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Sql2SQL_Azure",
+						"referenceName": "AzureSqlTable2",
 						"type": "DatasetReference"
 					}
 				],
