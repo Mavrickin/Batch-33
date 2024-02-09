@@ -1,0 +1,25 @@
+{
+	"name": "trigger for Blob2Blob",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL Blob2Blob",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 2,
+				"startTime": "2024-02-09T21:36:00Z",
+				"endTime": "2024-02-10T21:40:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
