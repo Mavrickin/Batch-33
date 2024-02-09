@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADF-link-KeyVault"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureSql2SQL_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"value": ""
+		},
+		"Azure_ADLS2SqlDatabase_connectionString": {
+			"value": ""
+		},
+		"Blob_2_Blob_connectionString": {
+			"value": ""
+		},
+		"LS_Ad2Ad_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://demototest.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://demototest.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kvasdemo.vault.azure.net/"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://kvasdemo.vault.azure.net/"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_connectionString_secretName": {
+			"value": "SQLconnector"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://dummy.restapiexample.com/api/v1/employees"
+		},
+		"HttpServer2_properties_typeProperties_url": {
+			"value": "https://dummy.restapiexample.com/api/v1/employees"
+		},
+		"LS_Ad2Ad_properties_typeProperties_url": {
+			"value": "https://demototest.dfs.core.windows.net/"
+		},
+		"LS_For_ADLS_KV_properties_typeProperties_baseUrl": {
+			"value": "https://kvasdemo.vault.azure.net/"
+		},
+		"LS_for_KV_properties_typeProperties_baseUrl": {
+			"value": "https://kvasdemo.vault.azure.net/"
+		},
+		"AzureDataLakeStorage63_properties_privateLinkResourceId": {
+			"value": "/subscriptions/46f861a7-0ca0-41ec-a155-4accc6c18c28/resourceGroups/RG_Demo/providers/Microsoft.Storage/storageAccounts/demototest"
+		},
+		"AzureDataLakeStorage63_properties_groupId": {
+			"value": "dfs"
+		}
+	}
+}

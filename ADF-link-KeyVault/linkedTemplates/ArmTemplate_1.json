@@ -1,0 +1,2058 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADF-link-KeyVault"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "iso_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location",
+						"type": "nvarchar"
+					},
+					{
+						"name": "date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "population",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reproduction_rate",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions_per_million",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "mytable"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "iso_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location",
+						"type": "nvarchar"
+					},
+					{
+						"name": "date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "population",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reproduction_rate",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions_per_million",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "mytable"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "testSchema",
+					"table": "testTable"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlTable6')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "iso_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location",
+						"type": "nvarchar"
+					},
+					{
+						"name": "date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "population",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reproduction_rate",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions_per_million",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "mytable"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_output')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Ad2Ad",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "mystorage"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Ad2Ad",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "demo-container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Ad2Ad",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "CovidDeaths_Updated.csv",
+						"fileSystem": "demo-container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "iso_code",
+						"type": "String"
+					},
+					{
+						"name": "continent",
+						"type": "String"
+					},
+					{
+						"name": "location",
+						"type": "String"
+					},
+					{
+						"name": "date",
+						"type": "String"
+					},
+					{
+						"name": "population",
+						"type": "String"
+					},
+					{
+						"name": "total_cases",
+						"type": "String"
+					},
+					{
+						"name": "new_cases",
+						"type": "String"
+					},
+					{
+						"name": "new_cases_smoothed",
+						"type": "String"
+					},
+					{
+						"name": "total_deaths",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths_smoothed",
+						"type": "String"
+					},
+					{
+						"name": "total_cases_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_cases_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_cases_smoothed_per_million",
+						"type": "String"
+					},
+					{
+						"name": "total_deaths_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths_smoothed_per_million",
+						"type": "String"
+					},
+					{
+						"name": "reproduction_rate",
+						"type": "String"
+					},
+					{
+						"name": "icu_patients",
+						"type": "String"
+					},
+					{
+						"name": "icu_patients_per_million",
+						"type": "String"
+					},
+					{
+						"name": "hosp_patients",
+						"type": "String"
+					},
+					{
+						"name": "hosp_patients_per_million",
+						"type": "String"
+					},
+					{
+						"name": "weekly_icu_admissions",
+						"type": "String"
+					},
+					{
+						"name": "weekly_icu_admissions_per_million",
+						"type": "String"
+					},
+					{
+						"name": "weekly_hosp_admissions",
+						"type": "String"
+					},
+					{
+						"name": "weekly_hosp_admissions_per_million",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText3')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_Ad2Ad",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "mystorage"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "iso_code",
+						"type": "String"
+					},
+					{
+						"name": "continent",
+						"type": "String"
+					},
+					{
+						"name": "location",
+						"type": "String"
+					},
+					{
+						"name": "date",
+						"type": "String"
+					},
+					{
+						"name": "population",
+						"type": "String"
+					},
+					{
+						"name": "total_cases",
+						"type": "String"
+					},
+					{
+						"name": "new_cases",
+						"type": "String"
+					},
+					{
+						"name": "new_cases_smoothed",
+						"type": "String"
+					},
+					{
+						"name": "total_deaths",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths_smoothed",
+						"type": "String"
+					},
+					{
+						"name": "total_cases_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_cases_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_cases_smoothed_per_million",
+						"type": "String"
+					},
+					{
+						"name": "total_deaths_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths_per_million",
+						"type": "String"
+					},
+					{
+						"name": "new_deaths_smoothed_per_million",
+						"type": "String"
+					},
+					{
+						"name": "reproduction_rate",
+						"type": "String"
+					},
+					{
+						"name": "icu_patients",
+						"type": "String"
+					},
+					{
+						"name": "icu_patients_per_million",
+						"type": "String"
+					},
+					{
+						"name": "hosp_patients",
+						"type": "String"
+					},
+					{
+						"name": "hosp_patients_per_million",
+						"type": "String"
+					},
+					{
+						"name": "weekly_icu_admissions",
+						"type": "String"
+					},
+					{
+						"name": "weekly_icu_admissions_per_million",
+						"type": "String"
+					},
+					{
+						"name": "weekly_hosp_admissions",
+						"type": "String"
+					},
+					{
+						"name": "weekly_hosp_admissions_per_million",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "container-3"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DelimitedText5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Blob_2_Blob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "genre",
+						"type": "String"
+					},
+					{
+						"name": "artist_name",
+						"type": "String"
+					},
+					{
+						"name": "track_name",
+						"type": "String"
+					},
+					{
+						"name": "track_id",
+						"type": "String"
+					},
+					{
+						"name": "popularity",
+						"type": "String"
+					},
+					{
+						"name": "acousticness",
+						"type": "String"
+					},
+					{
+						"name": "danceability",
+						"type": "String"
+					},
+					{
+						"name": "duration_ms",
+						"type": "String"
+					},
+					{
+						"name": "energy",
+						"type": "String"
+					},
+					{
+						"name": "instrumentalness",
+						"type": "String"
+					},
+					{
+						"name": "key",
+						"type": "String"
+					},
+					{
+						"name": "liveness",
+						"type": "String"
+					},
+					{
+						"name": "loudness",
+						"type": "String"
+					},
+					{
+						"name": "mode",
+						"type": "String"
+					},
+					{
+						"name": "speechiness",
+						"type": "String"
+					},
+					{
+						"name": "tempo",
+						"type": "String"
+					},
+					{
+						"name": "time_signature",
+						"type": "String"
+					},
+					{
+						"name": "valence",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpServer2",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpServer1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Sql2SQL_Azure')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureSql2SQL",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "iso_code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "continent",
+						"type": "nvarchar"
+					},
+					{
+						"name": "location",
+						"type": "nvarchar"
+					},
+					{
+						"name": "date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "population",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_cases_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "total_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "new_deaths_smoothed_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "reproduction_rate",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "icu_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients",
+						"type": "nvarchar"
+					},
+					{
+						"name": "hosp_patients_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_icu_admissions_per_million",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions",
+						"type": "nvarchar"
+					},
+					{
+						"name": "weekly_hosp_admissions_per_million",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "mytable"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/blob_op')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Blob_2_Blob",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "output"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL Blob2Blob')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CD Blob2Blob",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText5",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "blob_op",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText5')]",
+				"[concat(variables('factoryId'), '/datasets/blob_op')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_Adls2SQL')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false,
+								"tableOption": "autoCreate",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "iso_code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "iso_code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "continent",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "continent",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "location",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "location",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "date",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "date",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "population",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "population",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "total_cases",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "total_cases",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_cases",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases_smoothed",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_cases_smoothed",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "total_deaths",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "total_deaths",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_deaths",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths_smoothed",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_deaths_smoothed",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "total_cases_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "total_cases_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_cases_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases_smoothed_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_cases_smoothed_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "total_deaths_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "total_deaths_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_deaths_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths_smoothed_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "new_deaths_smoothed_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "reproduction_rate",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "reproduction_rate",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "icu_patients",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "icu_patients",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "icu_patients_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "icu_patients_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "hosp_patients",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "hosp_patients",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "hosp_patients_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "hosp_patients_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_icu_admissions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "weekly_icu_admissions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_icu_admissions_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "weekly_icu_admissions_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_hosp_admissions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "weekly_hosp_admissions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_hosp_admissions_per_million",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "weekly_hosp_admissions_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureSqlTable1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2024-02-04T17:46:07Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_SQL2SQL_AZ')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CP SQL2SQl Az",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "dbo.mytable"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false,
+								"tableOption": "autoCreate",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "iso_code",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "iso_code"
+										}
+									},
+									{
+										"source": {
+											"name": "continent",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "continent"
+										}
+									},
+									{
+										"source": {
+											"name": "location",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "location"
+										}
+									},
+									{
+										"source": {
+											"name": "date",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "date"
+										}
+									},
+									{
+										"source": {
+											"name": "population",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "population"
+										}
+									},
+									{
+										"source": {
+											"name": "total_cases",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "total_cases"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_cases"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases_smoothed",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_cases_smoothed"
+										}
+									},
+									{
+										"source": {
+											"name": "total_deaths",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "total_deaths"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_deaths"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths_smoothed",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_deaths_smoothed"
+										}
+									},
+									{
+										"source": {
+											"name": "total_cases_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "total_cases_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_cases_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "new_cases_smoothed_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_cases_smoothed_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "total_deaths_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "total_deaths_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_deaths_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "new_deaths_smoothed_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "new_deaths_smoothed_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "reproduction_rate",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "reproduction_rate"
+										}
+									},
+									{
+										"source": {
+											"name": "icu_patients",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "icu_patients"
+										}
+									},
+									{
+										"source": {
+											"name": "icu_patients_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "icu_patients_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "hosp_patients",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "hosp_patients"
+										}
+									},
+									{
+										"source": {
+											"name": "hosp_patients_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "hosp_patients_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_icu_admissions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "weekly_icu_admissions"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_icu_admissions_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "weekly_icu_admissions_per_million"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_hosp_admissions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "weekly_hosp_admissions"
+										}
+									},
+									{
+										"source": {
+											"name": "weekly_hosp_admissions_per_million",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "weekly_hosp_admissions_per_million"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlTable2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Sql2SQL_Azure",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTable2')]",
+				"[concat(variables('factoryId'), '/datasets/Sql2SQL_Azure')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/PL_Sql2Adl_with_KV')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CP from SQL using Keyvault",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "AzureSqlTable2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DelimitedText4",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2024-02-05T14:52:56Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTable2')]",
+				"[concat(variables('factoryId'), '/datasets/DelimitedText4')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Pipeline_For_ADL2ADl')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CP_ADLSgen 2 ADLS",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"wildcardFileName": "*.csv",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "DelimitedTextSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "DelimitedTextWriteSettings",
+									"quoteAllText": true,
+									"fileExtension": ".txt"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DelimitedText1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DS_output",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2024-02-04T15:28:08Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DelimitedText1')]",
+				"[concat(variables('factoryId'), '/datasets/DS_output')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow1')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "AzureSqlTable6",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "AzureSqlTable5",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "derivedColumn1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          iso_code as string,",
+						"          continent as string,",
+						"          location as string,",
+						"          date as string,",
+						"          population as integer,",
+						"          total_cases as string,",
+						"          new_cases as string,",
+						"          new_cases_smoothed as string,",
+						"          total_deaths as string,",
+						"          new_deaths as string,",
+						"          new_deaths_smoothed as string,",
+						"          total_cases_per_million as string,",
+						"          new_cases_per_million as string,",
+						"          new_cases_smoothed_per_million as string,",
+						"          total_deaths_per_million as string,",
+						"          new_deaths_per_million as string,",
+						"          new_deaths_smoothed_per_million as string,",
+						"          reproduction_rate as string,",
+						"          icu_patients as string,",
+						"          icu_patients_per_million as string,",
+						"          hosp_patients as string,",
+						"          hosp_patients_per_million as string,",
+						"          weekly_icu_admissions as string,",
+						"          weekly_icu_admissions_per_million as string,",
+						"          weekly_hosp_admissions as string,",
+						"          weekly_hosp_admissions_per_million as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> source1",
+						"source1 derive({population per million} = population/1000000) ~> derivedColumn1",
+						"derivedColumn1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTable6')]",
+				"[concat(variables('factoryId'), '/datasets/AzureSqlTable5')]"
+			]
+		}
+	]
+}
