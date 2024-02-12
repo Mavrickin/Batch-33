@@ -6,8 +6,9 @@
 		"annotations": [],
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": "integrated security=False;data source=testtrail1;initial catalog=datafactoryforrk;user id=testtrail1",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3MTA3ZmQyZC00MTE4LTRjZGMtYTE1Ny1lM2JjMWMwYmJhY2UiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"connectionString": "integrated security=True;data source=testtrail1;initial catalog=datafactoryforrk",
+			"userName": "testtrail1",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2YjcyZDdiNy0xOGJiLTRiYjAtOTYyMS1kNjYxYTQ5Mzk2MzciLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "selfhostedirrk",
