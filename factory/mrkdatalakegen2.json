@@ -1,0 +1,9 @@
+{
+	"name": "mrkdatalakegen2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d9fecbf2-60d7-46d8-bdc5-2731c1e9a65f",
+		"tenantId": "ae145aea-cdb2-446a-b05a-7858dde5ddba"
+	}
+}
